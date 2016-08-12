@@ -17,10 +17,9 @@ namespace EP.IdentityIsolation.API.Hubs
 
         public ChatHub(ApplicationUserManager userManager)
         {
-            using (Startup.container.BeginExecutionContextScope())
-            {
-                _userManager = Startup.container.GetInstance<ApplicationUserManager>();
-            }
+            
+            _userManager = userManager;
+            
         }
 
         public override Task OnConnected()
